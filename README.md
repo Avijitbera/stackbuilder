@@ -49,7 +49,7 @@ stackbuilder/
 ```
 
 ## Contributing 🤝
-We welcome contributions from the community! Whether you're fixing bugs, adding features, or improving documentation, your help is appreciated. Please read our [CONTRIBUTING.md](CONTRIBUTING.md) file for guidelines on how to contribute.
+We welcome contributions from the community! Whether you're fixing bugs, adding features, or improving documentation, your help is appreciated. Please read our [CONTRIBUTING.md](docs/CONTRIBUTING.md) file for guidelines on how to contribute.
 
 ## Feature Roadmap 🗺️
 Check out our [FEATURES.md](FEATURES.md) file to see what features are implemented, planned, and how to request new features.
