@@ -22,7 +22,7 @@ To get started with StackBuilder, follow these steps:
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/your-username/stackbuilder.git
+   git clone https://github.com/Avijitbera/stackbuilder.git
    ```
 2. **Install Dependencies**:
    ```bash
@@ -54,8 +54,8 @@ We welcome contributions from the community! Whether you're fixing bugs, adding 
 ## Feature Roadmap 🗺️
 Check out our [FEATURES.md](docs/FEATURES.md) file to see what features are implemented, planned, and how to request new features.
 
-## Deployment 🚀
-For deployment instructions, see our [DEPLOYMENT.md](docs/DEPLOYMENT.md) file.
+<!-- ## Deployment 🚀
+For deployment instructions, see our [DEPLOYMENT.md](docs/DEPLOYMENT.md) file. -->
 
 ## License 📜
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.

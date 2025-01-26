@@ -51,7 +51,7 @@ It also applies when an individual is officially representing the project or com
 
 ## Enforcement 🚨
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the project maintainers at [your-email@example.com]. All complaints will be reviewed and investigated promptly and fairly.
+Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the project maintainers at [avijitbera775@gmail.com]. All complaints will be reviewed and investigated promptly and fairly.
 
 All project maintainers are obligated to respect the privacy and security of the reporter of any incident.
 
