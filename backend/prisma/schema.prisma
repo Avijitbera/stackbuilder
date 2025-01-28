@@ -29,5 +29,7 @@ model Project {
   type      String
   userId    Int
   user      User     @relation(fields: [userId], references: [id])
+  
+  data      Json?    
   createdAt DateTime @default(now())
 }
