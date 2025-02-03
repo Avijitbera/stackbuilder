@@ -25,11 +25,11 @@ model User {
 
 model Project {
   id        Int      @id @default(autoincrement())
-  name      String
-  type      String
-  userId    Int
-  user      User     @relation(fields: [userId], references: [id])
-  
-  data      Json?    
+  userId    Int      // Link to the user who created the project
+  name      String   // Project name
+  data      String   // JSON string of the project structure (e.g., components)
   createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user      User     @relation(fields: [userId], references: [id])
 }
