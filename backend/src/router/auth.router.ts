@@ -1,11 +1,14 @@
-import { Request, Response } from 'express';
-import { PrismaClient } from '@prisma/client';
+import express, { Request, Response } from 'express'
+import {PrismaClient} from '@prisma/client'
+import { generateToken } from '../utils/jwt'
 import bcrypt from 'bcryptjs';
-import { generateToken } from '../utils/jwt';
+
 
 const prisma = new PrismaClient()
+const authRouter = express.Router()
 
-export const register = async (req: Request, res: Response) => {
+
+authRouter.post("/register", async (req: Request, res: Response):Promise<any> => {
     const { email, password, name } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
   
@@ -17,9 +20,9 @@ export const register = async (req: Request, res: Response) => {
     } catch (error) {
       return res.status(400).json({ message: 'User already exists', error:true });
     }
-  };
+})
 
-  export const login = async (req: Request, res: Response) => {
+authRouter.post("/login", async (req: Request, res: Response):Promise<any> => {
     const { email, password } = req.body;
   
     const user = await prisma.user.findUnique({ where: { email } });
@@ -29,4 +32,6 @@ export const register = async (req: Request, res: Response) => {
   
     const token = generateToken(user.id);
     return res.json({ token, success:true });
-  };
+})
+
+export default authRouter
