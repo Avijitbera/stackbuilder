@@ -7,6 +7,7 @@ const SiteBuilder = () =>{
     const {projectId} = useParams()
     const navigate = useNavigate();
     const {token} = useAuth()
+    const [components, setComponents] = useState<Array<{ type: string; content: string }>>([]);
 
     const createNewProject = async () => {
         try {
@@ -26,6 +27,21 @@ const SiteBuilder = () =>{
           }
         } catch (error) {
           console.error("Error creating project:", error);
+        }
+      };
+
+      const loadProject = async () => {
+        try {
+          const response = await fetch(`/api/projects/get?projectId=${projectId}`);
+          const data = await response.json();
+    
+          if (response.ok && data.project) {
+            setComponents(JSON.parse(data.project.data));
+          } else {
+            alert("Failed to load project.");
+          }
+        } catch (error) {
+          console.error("Error loading project:", error);
         }
       };
     return (
