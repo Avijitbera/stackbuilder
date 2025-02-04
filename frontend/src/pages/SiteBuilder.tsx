@@ -44,6 +44,22 @@ const SiteBuilder = () =>{
           console.error("Error loading project:", error);
         }
       };
+      const saveProject = async () => {
+        try {
+          const response = await fetch("/api/projects/update", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ projectId, data: JSON.stringify(components) }),
+          });
+    
+          if (!response.ok) {
+            alert("Failed to save project.");
+          }
+        } catch (error) {
+          console.error("Error saving project:", error);
+        }
+      };
+    
     return (
         <div className="min-h-screen bg-gray-100 p-6">
 
