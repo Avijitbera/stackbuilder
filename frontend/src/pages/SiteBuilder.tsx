@@ -59,6 +59,24 @@ const SiteBuilder = () =>{
           console.error("Error saving project:", error);
         }
       };
+
+      useEffect(() => {
+        if (projectId) {
+          loadProject();
+        } else {
+          createNewProject(); // Create a new project if no projectId is provided
+        }
+      }, [projectId]);
+
+      useEffect(() => {
+        if (projectId) {
+          const autoSave = setTimeout(() => {
+            saveProject();
+          }, 5000); // Auto-save every 5 seconds
+    
+          return () => clearTimeout(autoSave);
+        }
+      }, [components, projectId]);
     
     return (
         <div className="min-h-screen bg-gray-100 p-6">
