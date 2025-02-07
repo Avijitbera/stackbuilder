@@ -80,6 +80,13 @@ const SiteBuilder = () =>{
     
     return (
         <div className="min-h-screen bg-gray-100 p-6">
+          <h1 className="text-3xl font-bold mb-6">Static Site Builder</h1>
+          <button
+            onClick={saveProject}
+            className="bg-blue-500 text-white py-2 px-4 rounded-lg mb-4"
+          >
+            Save Progress
+          </button>
 
         </div>
     )
