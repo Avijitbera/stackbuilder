@@ -1,4 +1,4 @@
-import { useState, createContext } from "react";
+import { useState, createContext, useContext } from "react";
 
 
 interface Component {
@@ -56,4 +56,12 @@ export const BuilderProvider: React.FC<{ children: React.ReactNode }> = ({ child
             {children}
         </BuilderContext.Provider>
       )
+}
+
+export const useBuilder = () =>{
+    const context = useContext(BuilderContext);
+    if (!context) {
+        throw new Error("useBuilder must be used within a BuilderProvider");
+      }
+      return context;
 }
