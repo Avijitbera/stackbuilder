@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { createContext } from "vm";
+import { useState, createContext } from "react";
+
 
 interface Component {
     type: string;
@@ -36,4 +36,24 @@ export const BuilderProvider: React.FC<{ children: React.ReactNode }> = ({ child
       const selectComponent = (index: number) => {
         setSelectedIndex(index);
       };
+
+      const updateComponentContent = (index: number, content: string) => {
+        const updatedComponents = [...components];
+        updatedComponents[index].content = content;
+        setComponents(updatedComponents);
+      };
+
+      return(
+        <BuilderContext.Provider
+        value={{
+            components,
+        selectedComponent: selectedIndex !== null ? components[selectedIndex] : null,
+        addComponent,
+        updateComponentContent,
+        updateComponentProps,
+        selectComponent,
+        }}>
+            {children}
+        </BuilderContext.Provider>
+      )
 }
