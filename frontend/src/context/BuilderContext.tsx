@@ -26,4 +26,14 @@ export const BuilderProvider: React.FC<{ children: React.ReactNode }> = ({ child
         const newComponent = { type, content: "", props: {} };
         setComponents([...components, newComponent]);
       };
+
+      const updateComponentProps = (index: number, props: any) => {
+        const updatedComponents = [...components];
+        updatedComponents[index].props = { ...updatedComponents[index].props, ...props };
+        setComponents(updatedComponents);
+      };
+    
+      const selectComponent = (index: number) => {
+        setSelectedIndex(index);
+      };
 }
