@@ -14,6 +14,7 @@ interface BuilderContextType {
     updateComponentContent: (index: number, content: string) => void;
     updateComponentProps: (index: number, props: any) => void;
     selectComponent: (index: number) => void;
+    selectedIndex: number | null;
 }
 
 const BuilderContext = createContext<BuilderContextType | undefined>(undefined);
@@ -43,11 +44,14 @@ export const BuilderProvider: React.FC<{ children: React.ReactNode }> = ({ child
         setComponents(updatedComponents);
       };
 
+      
+
       return(
         <BuilderContext.Provider
         value={{
             components,
         selectedComponent: selectedIndex !== null ? components[selectedIndex] : null,
+        selectedIndex,
         addComponent,
         updateComponentContent,
         updateComponentProps,
