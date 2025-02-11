@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import ThemeToggle from "../components/ThemeToggle";
 import { useTheme } from "../context/ThemeContext";
+import { BuilderProvider, useBuilder } from "../context/BuilderContext";
 
 
 const SiteBuilder = () =>{
@@ -11,6 +12,8 @@ const SiteBuilder = () =>{
     const {token} = useAuth()
     const [components, setComponents] = useState<Array<{ type: string; content: string }>>([]);
     const { colors, theme } = useTheme();
+
+    const {selectedIndex, selectComponent} = useBuilder()
     
     // const createNewProject = async () => {
     //     try {
@@ -93,7 +96,8 @@ const SiteBuilder = () =>{
       };
     
     return (
-        <div className="min-h-screen bg-gray-100 p-6">
+        <BuilderProvider>
+          <div className="min-h-screen bg-gray-100 p-6">
           <div className="flex flex-row justify-between items-center mb-6">
         <h1 className="text-3xl font-bold">Static Site Builder</h1>
         <ThemeToggle />
@@ -160,6 +164,7 @@ const SiteBuilder = () =>{
       </div>
           
         </div>
+        </BuilderProvider>
     )
 }
 
