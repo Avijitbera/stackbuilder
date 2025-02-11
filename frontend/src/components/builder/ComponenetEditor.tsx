@@ -39,6 +39,35 @@ const ComponentEditor = () => {
           />
                 </>
             )}
+
+{selectedComponent.type === "input" && (
+        <ColorPicker
+          label="Border Color"
+          value={selectedComponent.props.borderColor || "gray-300"}
+          onChange={(value) => updateComponentProps(selectedIndex!, { borderColor: value })}
+        />
+      )}
+      {selectedComponent.type === "card" && (
+        <>
+          <ColorPicker
+            label="Background Color"
+            value={selectedComponent.props.backgroundColor || "white"}
+            onChange={(value) =>
+              updateComponentProps(selectedIndex!, { backgroundColor: value })
+            }
+          />
+          <Select
+            label="Shadow"
+            value={selectedComponent.props.shadow || "md"}
+            options={[
+              { value: "sm", label: "Small" },
+              { value: "md", label: "Medium" },
+              { value: "lg", label: "Large" },
+            ]}
+            onChange={(value) => updateComponentProps(selectedIndex!, { shadow: value })}
+          />
+        </>
+      )}
         </div>
     )
 }
