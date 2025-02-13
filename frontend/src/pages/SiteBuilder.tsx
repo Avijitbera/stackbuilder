@@ -4,13 +4,14 @@ import { useAuth } from "../context/AuthContext";
 import ThemeToggle from "../components/ThemeToggle";
 import { useTheme } from "../context/ThemeContext";
 import { BuilderProvider, useBuilder } from "../context/BuilderContext";
+import Button from "../components/ui/Button";
 
 
 const SiteBuilder = () =>{
     const {projectId} = useParams()
     const navigate = useNavigate();
     const {token} = useAuth()
-    const [components, setComponents] = useState<Array<{ type: string; content: string }>>([]);
+    const [components, setComponents] = useState<Array<{ type: string; content: string, props?: any }>>([]);
     const { colors, theme } = useTheme();
 
     const {selectedIndex, selectComponent} = useBuilder()
@@ -156,7 +157,16 @@ const SiteBuilder = () =>{
                     style={{ backgroundColor: colors.card, color: colors.text }}
                     placeholder="Enter image URL here..."
                   />
-                ) : null}
+                ) 
+                : component.type === "button" ? (
+                  <Button
+                    onClick={() => alert("Button clicked!")}
+                    variant={component.props.variant || "primary"}
+                  >
+                    {component.content || "Button"}
+                  </Button>
+                ) :
+                null}
               </div>
             ))
           )}
