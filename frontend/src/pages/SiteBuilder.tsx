@@ -5,6 +5,7 @@ import ThemeToggle from "../components/ThemeToggle";
 import { useTheme } from "../context/ThemeContext";
 import { BuilderProvider, useBuilder } from "../context/BuilderContext";
 import Button from "../components/ui/Button";
+import Grid from "../components/layout/Grid";
 
 
 const SiteBuilder = () =>{
@@ -14,7 +15,7 @@ const SiteBuilder = () =>{
     const [components, setComponents] = useState<Array<{ type: string; content: string, props?: any }>>([]);
     const { colors, theme } = useTheme();
 
-    const {selectedIndex, selectComponent} = useBuilder()
+    // const {selectedIndex, selectComponent} = useBuilder()
     
     // const createNewProject = async () => {
     //     try {
