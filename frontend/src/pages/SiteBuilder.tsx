@@ -165,6 +165,10 @@ const SiteBuilder = () =>{
                   >
                     {component.content || "Button"}
                   </Button>
+                ) : component.type === "grid" ? (
+                  <Grid columns={component.props.columns || 2} gap={component.props.gap || 4}>
+                    {component.content}
+                  </Grid>
                 ) :
                 null}
               </div>
